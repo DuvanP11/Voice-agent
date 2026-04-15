@@ -1,0 +1,395 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "last_updated": "2025-04-15",
+    "based_on": "Parámetros_de_Activación.pdf + ClickHouse real data",
+    "status_codes": {
+      "0": "Pendiente",
+      "1": "Aprobado", 
+      "2": "En Revisión",
+      "3": "Rechazado"
+    }
+  },
+  "form_key_mapping": {
+    "DriverSignupForm": {
+      "display_name": "Foto de Perfil",
+      "category": "selfie",
+      "applies_to": ["CO", "MX", "AR", "EC", "GT", "NI", "VE"],
+      "critical": true
+    },
+    "IdentificationForm": {
+      "display_name_by_country": {
+        "CO": "Cédula de Ciudadanía (Frontal)",
+        "MX": "INE (Frontal)",
+        "AR": "DNI (Frontal)",
+        "EC": "Cédula de Ciudadanía (Frontal)",
+        "GT": "DPI (Frontal)",
+        "NI": "Cédula de Identidad (Frontal)",
+        "VE": "Cédula de Identidad (Frontal)"
+      },
+      "category": "identification",
+      "critical": true
+    },
+    "IdentificationFormBack": {
+      "display_name": "Documento de Identidad (Reverso)",
+      "category": "identification",
+      "critical": true
+    },
+    "DriverLicenseForm": {
+      "display_name": "Licencia de Conducir",
+      "category": "license",
+      "critical": true
+    },
+    "DriversLicenseForm": {
+      "display_name": "Licencia de Conducir",
+      "category": "license",
+      "critical": true
+    },
+    "LisenceForm": {
+      "display_name": "Licencia de Conducir",
+      "category": "license",
+      "critical": true
+    },
+    "VehicleSignupForm": {
+      "display_name_by_country": {
+        "CO": "Tarjeta de Propiedad",
+        "MX": "Tarjeta de Circulación",
+        "AR": "Cédula de Identificación Vehicular",
+        "EC": "Matrícula Vehicular",
+        "GT": "Tarjeta de Circulación",
+        "NI": "Tarjeta de Circulación",
+        "VE": "Certificado de Circulación"
+      },
+      "category": "vehicle",
+      "critical": true
+    },
+    "SoatForm": {
+      "display_name": "SOAT",
+      "category": "insurance",
+      "applies_to": ["CO", "EC"],
+      "auto_validated": true,
+      "critical": true
+    },
+    "InsuranceForm": {
+      "display_name": "Seguro Obligatorio",
+      "category": "insurance",
+      "critical": true
+    },
+    "ThirdPartResponsabilityForm": {
+      "display_name_by_country": {
+        "MX": "Póliza de Responsabilidad Civil",
+        "AR": "Póliza contra Terceros"
+      },
+      "category": "insurance",
+      "applies_to": ["MX", "AR"]
+    },
+    "JudicialBackgroundForm": {
+      "display_name": "Antecedentes Judiciales",
+      "category": "background_check",
+      "applies_to": ["CO", "GT"],
+      "auto_validated": true
+    },
+    "ResponsibleTaxForm": {
+      "display_name": "RFC",
+      "category": "tax",
+      "applies_to": ["MX"],
+      "critical": true
+    }
+  },
+  "documents_by_country": {
+    "CO": {
+      "country_name": "Colombia",
+      "phone_code": "57",
+      "required_documents": [
+        {
+          "form_key": "DriverSignupForm",
+          "display_name": "Foto de Perfil",
+          "instructions": {
+            "intro": "Vamos a empezar con tu foto de perfil.",
+            "requirements": [
+              "Tómate una selfie en un lugar bien iluminado",
+              "Tu rostro debe verse completo: frente, ojos, nariz y boca",
+              "No uses lentes oscuros, gorras ni accesorios que tapen tu cara",
+              "Mantén una expresión neutral, similar a tu foto de cédula",
+              "El fondo debe ser claro y sin distracciones"
+            ],
+            "common_errors": [
+              "No uses filtros de Instagram o cualquier app de edición",
+              "No uses fotos grupales ni aparezcan mascotas",
+              "No tomes capturas de pantalla de fotos antiguas",
+              "No uses fotos con mala iluminación o borrosas",
+              "Evita usar audífonos de diadema o cascos"
+            ]
+          }
+        },
+        {
+          "form_key": "IdentificationForm",
+          "display_name": "Cédula de Ciudadanía (Frontal)",
+          "instructions": {
+            "intro": "Ahora vamos con tu cédula de ciudadanía, parte frontal.",
+            "requirements": [
+              "Coloca tu cédula sobre una superficie plana con buena luz",
+              "Asegúrate de que no haya sombras ni reflejos",
+              "La cédula debe verse completa, sin cortar ningún borde",
+              "Toma la foto desde arriba, paralelo al documento",
+              "Verifica que todos los números y letras se lean claramente"
+            ],
+            "common_errors": [
+              "No uses capturas de pantalla de fotos antiguas",
+              "No tomes la foto con flash si genera reflejo",
+              "No dobles ni arrugues el documento",
+              "Evita fondos oscuros o con patrones"
+            ]
+          }
+        },
+        {
+          "form_key": "IdentificationFormBack",
+          "display_name": "Cédula de Ciudadanía (Reverso)",
+          "instructions": {
+            "intro": "Ahora fotografía el reverso de tu cédula.",
+            "requirements": [
+              "Igual que el frontal: superficie plana y buena iluminación",
+              "El reverso debe verse completo y legible",
+              "Verifica que el número de cédula sea visible"
+            ],
+            "common_errors": [
+              "No uses la misma foto del frontal",
+              "Asegúrate que no haya reflejos que tapen información"
+            ]
+          }
+        },
+        {
+          "form_key": "DriverLicenseForm",
+          "display_name": "Licencia de Conducción",
+          "instructions": {
+            "intro": "Ahora vamos con tu licencia de conducción.",
+            "requirements": [
+              "Fotografía el frente Y el reverso de tu licencia",
+              "La licencia debe estar vigente, verifica la fecha antes de tomarla",
+              "Asegúrate que el código de barras se vea claramente",
+              "Las categorías de conducción deben ser legibles",
+              "Superficie plana y buena iluminación"
+            ],
+            "common_errors": [
+              "No uses licencias vencidas, serán rechazadas automáticamente",
+              "No cubras ninguna parte con tus dedos al tomarla",
+              "No uses fotos viejas, deben ser recientes",
+              "Verifica que las categorías autorizadas sean correctas"
+            ]
+          }
+        },
+        {
+          "form_key": "VehicleSignupForm",
+          "display_name": "Tarjeta de Propiedad del Vehículo",
+          "instructions": {
+            "intro": "Necesitamos la tarjeta de propiedad de tu vehículo.",
+            "requirements": [
+              "Fotografía el frente y reverso de la tarjeta",
+              "El vehículo debe estar a tu nombre o tener carta de autorización",
+              "Verifica que la placa del vehículo coincida con la que vas a registrar",
+              "La tarjeta debe estar vigente y sin restricciones",
+              "Todos los datos deben ser legibles"
+            ],
+            "common_errors": [
+              "No uses vehículos con reporte de robo o embargos",
+              "Si el vehículo no está a tu nombre, prepara carta de autorización notariada",
+              "No fotografíes documentos doblados o deteriorados",
+              "Verifica que el modelo y año cumplan requisitos"
+            ]
+          }
+        },
+        {
+          "form_key": "SoatForm",
+          "display_name": "SOAT Vigente",
+          "instructions": {
+            "intro": "El SOAT es obligatorio. Verifiquemos que esté vigente.",
+            "requirements": [
+              "Fotografía el SOAT completo",
+              "La fecha de vigencia debe tener al menos 15 días desde hoy",
+              "El número de placa debe coincidir con tu vehículo",
+              "Si es digital, captura desde la app oficial de tu aseguradora",
+              "Verifica que el código QR sea visible si lo tiene"
+            ],
+            "common_errors": [
+              "No uses SOAT vencido, será rechazado inmediatamente",
+              "No fotografíes documentos arrugados o con manchas",
+              "La placa en el SOAT debe ser idéntica a la registrada",
+              "Si está próximo a vencer (menos de 15 días), renuévalo primero"
+            ],
+            "auto_validation": "Este documento se valida automáticamente contra RUNT"
+          }
+        },
+        {
+          "form_key": "JudicialBackgroundForm",
+          "display_name": "Certificado de Antecedentes",
+          "instructions": {
+            "intro": "Necesitamos verificar que no tengas antecedentes judiciales.",
+            "requirements": [
+              "Descarga el certificado desde la página de la Policía Nacional",
+              "Debe tener máximo 30 días de expedición",
+              "Guárdalo en formato PDF original, no capturas de pantalla",
+              "Verifica que tu nombre completo y cédula sean correctos",
+              "El documento debe incluir el código de verificación"
+            ],
+            "common_errors": [
+              "No uses certificados con más de 30 días",
+              "No tomes fotos de la pantalla, descarga el PDF oficial",
+              "Verifica que tenga el sello digital de la Policía"
+            ],
+            "auto_validation": "Este documento puede validarse automáticamente"
+          }
+        }
+      ],
+      "general_rules": {
+        "age_limit_vehicle": 65,
+        "age_limit_moto": 60,
+        "vehicle_model_min": 2001,
+        "moto_model_min": 2009,
+        "moto_min_cc": 99,
+        "doc_expiry_buffer_days": 15
+      }
+    },
+    "MX": {
+      "country_name": "México",
+      "phone_code": "52",
+      "required_documents": [
+        {
+          "form_key": "DriverSignupForm",
+          "display_name": "Foto de Perfil",
+          "instructions": {
+            "intro": "Vamos a empezar con tu foto de perfil.",
+            "requirements": [
+              "Tómate una selfie en un lugar bien iluminado",
+              "Tu rostro debe verse completo sin accesorios",
+              "Mantén expresión neutral",
+              "Fondo claro y sin distracciones"
+            ],
+            "common_errors": [
+              "No uses filtros",
+              "No aparezcas con otras personas o mascotas",
+              "No uses capturas de pantalla"
+            ]
+          }
+        },
+        {
+          "form_key": "IdentificationForm",
+          "display_name": "INE",
+          "instructions": {
+            "intro": "Ahora tu INE, la credencial de elector.",
+            "requirements": [
+              "Fotografía el frente de tu INE",
+              "Debe ser tipo D, EF o GH - verifica el tipo en tu credencial",
+              "Superficie plana, sin reflejos",
+              "INE completa y legible",
+              "Si tiene código QR, debe verse claramente para validación"
+            ],
+            "common_errors": [
+              "No uses INE tipo A, B o C - solo se aceptan D, EF, GH",
+              "No tapes el código QR con tus dedos",
+              "Verifica que no esté vencida"
+            ]
+          }
+        },
+        {
+          "form_key": "DriverLicenseForm",
+          "display_name": "Licencia de Conducir",
+          "instructions": {
+            "intro": "Tu licencia de conducir.",
+            "requirements": [
+              "Fotografía frente y reverso",
+              "Debe ser categoría A (carro), A1 (moto), o Tipo A (ambos)",
+              "Si es digital, debe incluir código QR para consulta",
+              "Licencia vigente y legible"
+            ],
+            "common_errors": [
+              "Verifica que la categoría sea correcta para lo que vas a manejar",
+              "No uses licencias vencidas",
+              "Si es digital, el QR debe ser escaneable"
+            ]
+          }
+        },
+        {
+          "form_key": "ResponsibleTaxForm",
+          "display_name": "RFC (Registro Federal de Contribuyentes)",
+          "instructions": {
+            "intro": "Necesitamos tu RFC para temas tributarios.",
+            "requirements": [
+              "Fotografía tu constancia de RFC",
+              "El nombre debe coincidir con tu INE",
+              "El número CURP debe ser el mismo de tu identificación",
+              "Si es digital, debe tener código QR válido"
+            ],
+            "common_errors": [
+              "Verifica que nombre y CURP coincidan exactamente",
+              "No uses RFC de otra persona",
+              "Si es digital, el QR debe permitir validación"
+            ]
+          }
+        },
+        {
+          "form_key": "VehicleSignupForm",
+          "display_name": "Tarjeta de Circulación",
+          "instructions": {
+            "intro": "La tarjeta de circulación de tu vehículo.",
+            "requirements": [
+              "Fotografía completa de la tarjeta",
+              "Los datos del vehículo deben coincidir con lo que registraste",
+              "Verifica fecha de vencimiento",
+              "Si es permiso provisional, debe tener número de folio visible"
+            ],
+            "common_errors": [
+              "Cuando es permiso debes ingresar el folio",
+              "Cuando es tarjeta debes ingresar la placa",
+              "Verifica que coincidan marca, modelo, color"
+            ]
+          }
+        },
+        {
+          "form_key": "ThirdPartResponsabilityForm",
+          "display_name": "Póliza de Responsabilidad Civil",
+          "instructions": {
+            "intro": "El seguro de responsabilidad civil.",
+            "requirements": [
+              "Fotografía completa de la póliza",
+              "Verifica fecha de vigencia",
+              "El número de serie del vehículo (INV) debe coincidir con tarjeta de circulación"
+            ],
+            "common_errors": [
+              "Solo aplica para carro, no para moto",
+              "Verifica que el INV sea idéntico en póliza y tarjeta"
+            ]
+          }
+        }
+      ],
+      "general_rules": {
+        "age_limit_vehicle": 65,
+        "age_limit_moto": 60,
+        "vehicle_model_min": 2001,
+        "moto_model_min": 2009,
+        "doc_expiry_buffer_days": 15
+      }
+    }
+  },
+  "common_rejection_reasons": {
+    "photo_quality": {
+      "blurry": "Foto borrosa o movida",
+      "incomplete": "Documento incompleto o cortado",
+      "glare": "Reflejos que impiden lectura",
+      "dark": "Mala iluminación",
+      "screenshot": "Captura de pantalla (no original)"
+    },
+    "document_validity": {
+      "expired": "Documento vencido",
+      "near_expiry": "Documento próximo a vencer (menos de 15 días)",
+      "altered": "Documento con alteraciones",
+      "mismatch": "Información no coincide con registro"
+    },
+    "photo_errors": {
+      "with_accessories": "Usa lentes oscuros, gorra u otros accesorios",
+      "with_people": "Aparecen otras personas o mascotas",
+      "filtered": "Foto editada o con filtros",
+      "inappropriate": "Foto inapropiada o sin vestimenta adecuada",
+      "wrong_angle": "Ángulo incorrecto o acostado"
+    }
+  }
+}
