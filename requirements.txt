@@ -1,37 +1,6 @@
-# =====================================================
-# DEPENDENCIAS DEL PROYECTO - AGENTE DE VOZ PICAP
-# =====================================================
-
-# Framework web
 Flask==3.0.0
 gunicorn==21.2.0
-
-# Twilio SDK
 twilio==8.11.0
-
-# Data processing
-pandas==2.1.4
-numpy==1.26.2
-openpyxl==3.1.2  # Para Excel
-
-# Database
 clickhouse-driver==0.2.6
-SQLAlchemy==2.0.23
-
-# Environment variables
 python-dotenv==1.0.0
-
-# Utilities
 requests==2.31.0
-python-dateutil==2.8.2
-
-# Logging y monitoring
-sentry-sdk[flask]==1.39.1
-
-# Testing
-pytest==7.4.3
-pytest-flask==1.3.0
-
-# Code quality
-black==23.12.1
-flake8==7.0.0
