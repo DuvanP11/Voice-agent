@@ -9,7 +9,7 @@ import json
 import logging
 from datetime import datetime
 from typing import Dict, List, Optional
-from clickhouse_driver import Client
+# from clickhouse_driver import Client
 
 # Configuración de logging
 logging.basicConfig(
@@ -25,13 +25,13 @@ with open('document_configs_real.json', 'r', encoding='utf-8') as f:
     CONFIG = json.load(f)
 
 # ClickHouse client
-ch_client = Client(
-    host='localhost',  # Ajustar según tu config
-    port=9000,
-    database='picapmongoprod',
-    user='default',
-    password='tu_password'
-)
+# ch_client = Client(
+ #   host='localhost',  # Ajustar según tu config
+ #   port=9000,
+  #  database='picapmongoprod',
+  #  user='default',
+  #  password='tu_password'
+# )
 
 
 class DocumentAnalyzer:
